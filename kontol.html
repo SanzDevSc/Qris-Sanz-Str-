@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Sanz</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #fff;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+    h1 {
+      color: #FFD700;
+      margin-top: 50px;
+    }
+    .btn-main {
+      display: inline-block;
+      background: #ffcc00;
+      color: #000;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-weight: bold;
+      margin-top: 12px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .btn-main:hover {
+      background: #ffa500;
+    }
+    /* Card dengan aura */
+    .card {
+      background: #222;
+      border-radius: 12px;
+      padding: 20px;
+      margin: 20px 0;
+      box-shadow: 0 0 25px #FFD700;
+      animation: aura 3s infinite alternate;
+    }
+    @keyframes aura {
+      0% {
+        box-shadow: 0 0 15px #FFD700, 0 0 30px #FFA500, 0 0 45px #FFD700;
+      }
+      100% {
+        box-shadow: 0 0 25px #FFA500, 0 0 50px #FFD700, 0 0 75px #FFA500;
+      }
+    }
+    .logo img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #FFD700;
+      margin-bottom: 10px;
+    }
+    h2 {
+      margin: 10px 0 20px;
+      color: #FFD700;
+    }
+    .qr-img {
+      width: 100%;
+      max-width: 350px;
+      border-radius: 12px;
+      margin: 10px auto;
+      display: block;
+    }
+    .section {
+      background: #1a1a1a;
+      padding: 15px;
+      border-radius: 10px;
+      margin-top: 15px;
+      text-align: center;
+    }
+    .label {
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 8px;
+      color: #ffcc00;
+    }
+    .number-box {
+      background: #333;
+      padding: 10px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+    .name {
+      margin-top: 6px;
+      font-size: 14px;
+      color: #fff;
+    }
+
+    /* Kontak Admin */
+    .contact {
+      margin-top: 25px;
+    }
+    .contact h3 {
+      color: #FFD700;
+      margin-bottom: 10px;
+    }
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+    .contact-links a {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: #222;
+      padding: 8px 12px;
+      border-radius: 8px;
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+      font-size: 14px;
+      box-shadow: 0 0 10px #FFD700;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .contact-links a:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 18px #FFA500, 0 0 28px #FFD700;
+    }
+    .contact-links img {
+      width: 20px;
+      height: 20px;
+    }
+
+    /* Transisi Fade */
+    .fade-section {
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+    .fade-section.show {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Halaman Welcome -->
+  <div id="welcome-section" class="fade-section show">
+    <h1>Selamat datang di Payment SANZ OFFICIAL</h1>
+    <button class="btn-main" onclick="showPayment()">💳 Lanjutkan ke Payment</button>
+  </div>
+
+  <!-- Halaman Payment -->
+  <div id="payment-section" class="fade-section" style="display:none;">
+    <!-- Logo -->
+    <div class="logo">
+      <img src="https://files.catbox.moe/e0m42k.jpg" alt="Logo SANZ">
+    </div>
+    <h2>PAYMENT SANZ</h2>
+
+    <!-- Card -->
+    <div class="card">
+      <h3>QRIS SANZ</h3>
+      <img src="https://files.catbox.moe/iph45h.jpg" alt="QRIS Sanz" class="qr-img">
+      <a href="https://files.catbox.moe/iph45h.jpg" download class="btn-main">⬇️ Download QRIS</a>
+
+      <div class="section">
+        <div class="label">DANA</div>
+        <div class="number-box">0857-1890-6011</div>
+        <div class="name">Atas Nama: Ahmad Yusuf</div>
+        <button class="btn-main" onclick="copyNumber()">📋 Salin Nomor</button>
+      </div>
+    </div>
+
+    <!-- Contact Admin -->
+    <div class="contact">
+      <h3>📞 Contact Admin</h3>
+      <div class="contact-links">
+        <a href="https://wa.me/085718906011" target="_blank">
+          <img src="https://img.icons8.com/color/48/whatsapp--v1.png" alt="WA"> WhatsApp
+        </a>
+        <a href="https://t.me/SanzNotDev" target="_blank">
+          <img src="https://img.icons8.com/color/48/telegram-app--v1.png" alt="Telegram"> Telegram
+        </a>
+      </div>
+    </div>
+
+    <p style="font-size:13px; color:#bbb; margin-top:20px;">
+      📌 Tekan lama gambar jika ingin simpan ke galeri<br>
+      📌 Setelah transfer, kirim bukti ke admin
+    </p>
+  </div>
+
+  <script>
+    function showPayment() {
+      const welcome = document.getElementById("welcome-section");
+      const payment = document.getElementById("payment-section");
+
+      welcome.classList.remove("show");
+      setTimeout(() => {
+        welcome.style.display = "none";
+        payment.style.display = "block";
+        setTimeout(() => {
+          payment.classList.add("show");
+        }, 50);
+      }, 1000);
+    }
+
+    function copyNumber() {
+      const nomor = "085718906011"; 
+      navigator.clipboard.writeText(nomor).then(() => {
+        alert("✅ Nomor berhasil disalin: " + nomor);
+      });
+    }
+  </script>
+
+</body>
+</html>
